@@ -54,12 +54,13 @@ X_1, X_2, Y_1, Y_2 = cross_validation.train_test_split(
 ### Define Classifier
 ###
 from sklearn.naive_bayes import GaussianNB
+
 clf = GaussianNB()
 
 ###
 ### Train Classifier
 ###
-clf.fit(X_1,Y_1)
+clf.fit(X_1, Y_1)
 
 ###
 ### Print Accuracy and Confusion Matrix
@@ -68,13 +69,17 @@ clf.fit(X_1,Y_1)
 output = clf.predict(X_2)
 
 from sklearn.metrics import confusion_matrix
+
 matrix = confusion_matrix(output, Y_2)
 score = clf.score(X_2, Y_2)
-print "accuracy: {0}".format(score.mean())
-print matrix
+print
+"accuracy: {0}".format(score.mean())
+print
+matrix
 
 ###
 ### Save Classifier
 ###
 from sklearn.externals import joblib
+
 joblib.dump(clf, 'model/nb.pkl')
